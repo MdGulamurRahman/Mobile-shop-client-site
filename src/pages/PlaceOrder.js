@@ -1,4 +1,5 @@
 import React from "react";
+import '../assets/css/PlaceOrder.css';
 import { useEffect, useState } from "react";
 import { Col, Container, Row, Spinner } from "react-bootstrap";
 import { useHistory, useParams } from "react-router";
@@ -13,7 +14,7 @@ const PlaceOrder = () => {
   const [product, setProduct] = useState({});
   const { displayName, email } = useContexts();
   useEffect(() => {
-    fetch(`http://localhost:5000/placeorder/${id}`)
+    fetch(`https://vast-gorge-39824.herokuapp.com/placeorder/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, [id]);
@@ -27,7 +28,7 @@ const PlaceOrder = () => {
       confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch("http://localhost:5000/placeorder", {
+        fetch("https://vast-gorge-39824.herokuapp.com/placeorder", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify({ ...data, ...product }),
@@ -63,7 +64,7 @@ const PlaceOrder = () => {
               style={{ borderRight: "1px solid #ddd", height: "100%" }}
               md={5}
             >
-              <img style={{ minWidth: "250px" }} src={product.img} alt="" />
+              <img className="order-img" style={{ minWidth: "250px" }} src={product.img} alt="" />
             </Col>
             <Col className="my-4" sm={12} md={6}>
               <h2 className="text-center feature">Please confirm order</h2>

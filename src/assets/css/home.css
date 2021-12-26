@@ -67,3 +67,19 @@
   align-items: center;
   color: #fff;
 }
+@media only screen and (max-width: 686px) {
+  .banner {
+    background: linear-gradient(#0000008a, #0000009c),
+    url("./../images/banner2.jpg");
+    background-position: center;
+    background-size: cover;
+  };
+  .collections .img {
+    padding: 0;
+    position: absolute;
+    margin-right: 300px;
+    
+  }
+}
+  
+
